@@ -29,7 +29,7 @@
                             {{-- يمكن إضافة زر هنا أيضًا --}}
                         </div>
                     @endif
-
+  
                 @if($slide->link_url)
                     </a>
                 @endif
