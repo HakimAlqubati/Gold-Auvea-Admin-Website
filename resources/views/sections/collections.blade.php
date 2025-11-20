@@ -10,17 +10,17 @@
         
         {{-- 1. Title and Kicker --}}
         <div class="section-title-wrap fade-in">
-            <div class="section-kicker">Custom CAD Modeling & Manufacturing Files</div>
-            <h2 class="section-title">Exclusive 3D Jewelry Collections for Yemen</h2>
+            <div class="section-kicker">{{ __('header.collections_kicker') }}</div>
+            <h2 class="section-title">{{ __('header.collections_title') }}</h2>
             <div class="section-underline"></div>
             <p class="steps-subtext" style="max-width: 700px; margin-top: 15px;">
-                Explore our distinct collection of 3D jewelry designs, ready for printing and casting in local workshops. We provide ultimate precision and designs that align with the latest gold and diamond trends in the region.
+                {{ __('header.collections_description') }}
             </p>
         </div>
 
         {{-- 2. Filters (الآن يتم جلبها ديناميكيًا من جدول Categories) --}}
         <div class="filter-cards fade-in">
-            <div class="filter-card active" data-filter="all">All Designs</div>
+            <div class="filter-card active" data-filter="all">{{ __('header.collections_all_designs') }}</div>
             
             @foreach($categories as $category)
                 <div class="filter-card" data-filter="{{ $category->data_filter }}">
@@ -57,7 +57,7 @@
                         {{-- مثال لعرض بعض التفاصيل التقنية (اختياري) --}}
                         @if($design->details)
                             <p class="collection-metadata">
-                                الوزن: {{ number_format($design->details->estimated_weight, 2) }} جرام | عيار: {{ $design->details->gold_karat }}
+                                {{ __('header.collections_weight') }}: {{ number_format($design->details->estimated_weight, 2) }} جرام | {{ __('header.collections_karat') }}: {{ $design->details->gold_karat }}
                             </p>
                         @endif
                     </div>
@@ -65,7 +65,7 @@
             @empty
                 {{-- رسالة تظهر إذا لم يتم العثور على أي تصاميم --}}
                 <div class="col-span-full text-center py-10">
-                    <p class="text-gray-500">No designs found in the database.</p>
+                    <p class="text-gray-500">{{ __('header.collections_no_designs') }}</p>
                 </div>
             @endforelse
             
