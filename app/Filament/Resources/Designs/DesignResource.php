@@ -18,7 +18,7 @@ class DesignResource extends Resource
 {
     protected static ?string $model = Design::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::Sun;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-paint-brush';
 
     protected static ?string $recordTitleAttribute = 'name_ar';
 

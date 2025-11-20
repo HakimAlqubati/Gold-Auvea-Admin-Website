@@ -21,8 +21,14 @@ class CategoriesTable
                     ->searchable(),
                 \Filament\Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
+                \Filament\Tables\Columns\TextColumn::make('designs_count')
+                    ->label('Designs Count')
+                    ->counts('designs')
+                    ->alignCenter()
+                    ->sortable(),
                 \Filament\Tables\Columns\IconColumn::make('is_active')
-                    ->boolean(),
+                    ->boolean()
+                    ->alignCenter(),
                 \Filament\Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
