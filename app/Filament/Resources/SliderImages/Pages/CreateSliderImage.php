@@ -8,4 +8,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateSliderImage extends CreateRecord
 {
     protected static string $resource = SliderImageResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }
