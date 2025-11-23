@@ -21,6 +21,7 @@
 
     <script src="{{ asset('assets/auvea/script.js') }}"></script>
     <script src="{{ asset('assets/auvea/cart.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>

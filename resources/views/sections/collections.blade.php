@@ -98,5 +98,12 @@ $designs = $designs ?? [];
             @endforelse
 
         </div>
+
+        {{-- 4. View All Button --}}
+        <div class="view-all-container fade-in">
+            <a href="{{ route('designs.index') }}" class="view-all-btn">
+                {{ __('header.view_all_collections') }}
+            </a>
+        </div>
     </div>
 </section>

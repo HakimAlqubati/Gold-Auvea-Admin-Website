@@ -83,6 +83,7 @@ return [
     'collections_no_designs' => 'لم يتم العثور على تصاميم في قاعدة البيانات.',
     'collections_weight' => 'الوزن',
     'collections_karat' => 'عيار',
+    'view_all_collections' => 'عرض كل المجموعات',
 
     // Design Request Section
     'request_kicker' => 'ابدأ مشروعك',

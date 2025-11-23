@@ -11,15 +11,35 @@ class DesignController extends Controller
     /**
      * عرض صفحة مجموعات التصاميم.
      */
+    /**
+     * عرض صفحة مجموعات التصاميم الكاملة.
+     */
     public function index()
     {
-        // 1. جلب الفئات (Categories) لاستخدامها في فلاتر الصفحة
-        $categories = Category::select('name_en', 'data_filter')->where('is_active', true)->get();
-
-        // 2. جلب جميع التصاميم مع العلاقة الخاصة بالفئة
-        // نستخدم eager loading (with('category')) لتقليل عدد استعلامات قاعدة البيانات
+        $categories = Category::where('is_active', true)->get();
+        // Default to showing all designs initially, or let the view handle the initial load via AJAX if preferred.
+        // For SEO and initial render, it's better to pass them.
         $designs = Design::with('category')->get();
 
-        return view('collections.index', compact('categories', 'designs'));
+        return view('pages.collections', compact('categories', 'designs'));
+    }
+
+    /**
+     * فلترة التصاميم عبر AJAX.
+     */
+    public function filter(Request $request)
+    {
+        $categoryId = $request->input('category_id');
+
+        $query = Design::with('category');
+
+        if ($categoryId && $categoryId !== 'all') {
+            $query->where('category_id', $categoryId);
+        }
+
+        $designs = $query->get();
+
+        // Return just the grid partial
+        return view('partials.designs-grid', compact('designs'))->render();
     }
 }

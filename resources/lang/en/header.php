@@ -83,6 +83,7 @@ return [
     'collections_no_designs' => 'No designs found in the database.',
     'collections_weight' => 'Weight',
     'collections_karat' => 'Karat',
+    'view_all_collections' => 'View All Collections',
 
     // Design Request Section
     'request_kicker' => 'Start Your Project',

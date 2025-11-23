@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\App;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // المسار الخاص بصفحة المجموعات الكاملة (إذا كانت منفصلة)
+// المسار الخاص بصفحة المجموعات الكاملة
 Route::get('/collections', [DesignController::class, 'index'])->name('designs.index');
+Route::get('/collections/filter', [DesignController::class, 'filter'])->name('designs.filter');
 
 // Language switcher route
 Route::get('/locale/{locale}', function ($locale) {
