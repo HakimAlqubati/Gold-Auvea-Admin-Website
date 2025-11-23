@@ -61,6 +61,15 @@ $designs = $designs ?? [];
                         {{ __('header.collections_weight') }}: {{ number_format($design->details->estimated_weight, 2) }} جرام | {{ __('header.collections_karat') }}: {{ $design->details->gold_karat }}
                     </p>
                     @endif
+
+                    {{-- زر إضافة إلى السلة --}}
+                    <button
+                        class="add-to-cart-btn"
+                        data-design-id="{{ $design->id }}"
+                        data-design-name="{{ app()->getLocale() == 'ar' ? $design->name_ar : $design->name_en }}">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-text">{{ __('header.add_to_cart') }}</span>
+                    </button>
                 </div>
             </article>
             @empty

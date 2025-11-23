@@ -5,67 +5,75 @@ return [
     'phone' => '+967 777 000 000',
     'design_production_delivery' => 'التصميم • الإنتاج • التوصيل داخل اليمن',
     'regions' => 'اليمن – صنعاء • عدن • تعز • إب',
-    
+
     // Logo
     'logo_main' => 'Auvea',
     'logo_sub' => 'استوديو الذهب والمجوهرات ثلاثي الأبعاد – اليمن',
-    
+
     // Navigation
     'nav_collections' => 'المجموعات ثلاثية الأبعاد',
     'nav_process' => 'العملية',
     'nav_request' => 'طلب',
-    
+
     // Icons tooltips
     'theme_toggle' => 'تبديل الوضع الليلي والنهاري',
     'wishlist' => 'المفضلة',
     'account' => 'الحساب',
     'cart' => 'السلة',
-    
+    'cart_item_added' => 'تمت إضافة العنصر إلى السلة بنجاح',
+    'cart_updated' => 'تم تحديث السلة بنجاح',
+    'cart_item_removed' => 'تم حذف العنصر من السلة',
+    'cart_cleared' => 'تم إفراغ السلة بنجاح',
+    'cart_item_already_added' => 'هذا العنصر موجود في السلة بالفعل',
+    'add_to_cart' => 'أضف إلى السلة',
+    'already_added' => 'مضاف بالفعل',
+    'view_cart' => 'عرض السلة',
+
     // Metal labels
     'gold' => 'الذهب',
     'silver' => 'الفضة',
     'platinum' => 'البلاتين',
-    
+
     // Language switcher
     'language' => 'اللغة',
-    
+
     // Footer
     'footer_intro' => 'يتخصص استوديو Auvea ثلاثي الأبعاد في تصاميم CAD عالية الجودة للمجوهرات من الذهب والفضة والأحجار الكريمة. نحن ندعم صاغة الذهب والورش في اليمن بمعاينات واقعية وأوزان دقيقة وملفات جاهزة للإنتاج - من الفكرة إلى الصب.',
-    
+
     // Newsletter
     'newsletter_heading' => 'ابق على تواصل',
     'newsletter_text' => 'احصل على تحديثات حول المجموعات ثلاثية الأبعاد الجديدة والعروض للورش اليمنية ونصائح لعرض التصاميم على عملائك.',
     'newsletter_placeholder' => 'أدخل بريدك الإلكتروني',
     'newsletter_button' => 'انضم',
-    
+
     // 3D Services
     'services_heading' => 'الخدمات ثلاثية الأبعاد',
     'service_custom_ring' => 'تصميم خاتم مخصص',
     'service_bridal' => 'طقم العروس',
     'service_silver_mens' => 'تصاميم الفضة والرجال',
     'service_name_jewelry' => 'مجوهرات الأسماء',
-    
+
     // For Yemen
     'yemen_heading' => 'لليمن',
     'yemen_workshops' => 'الورش والمصانع',
     'yemen_retail' => 'متاجر المجوهرات بالتجزئة',
     'yemen_delivery' => 'التوصيل عن بعد',
     'yemen_payment' => 'خيارات الدفع',
-    
+
     // Support
     'support_heading' => 'الدعم',
     'support_how_works' => 'كيف يعمل التصميم ثلاثي الأبعاد',
     'support_formats' => 'صيغ الملفات',
     'support_contact' => 'التواصل والواتساب',
     'support_faq' => 'الأسئلة الشائعة',
-    
+
     // Footer bottom
     'copyright' => '© 2025 استوديو Auvea ثلاثي الأبعاد • جميع الحقوق محفوظة',
     'sitemap' => 'خريطة الموقع',
     'privacy' => 'سياسة الخصوصية',
     'terms' => 'الشروط والأحكام',
     'designer' => 'تصميم المهندس عدي',
-    
+
     // Collections Section
     'collections_kicker' => 'نمذجة CAD مخصصة وملفات التصنيع',
     'collections_title' => 'مجموعات المجوهرات ثلاثية الأبعاد الحصرية لليمن',
@@ -74,7 +82,7 @@ return [
     'collections_no_designs' => 'لم يتم العثور على تصاميم في قاعدة البيانات.',
     'collections_weight' => 'الوزن',
     'collections_karat' => 'عيار',
-    
+
     // Design Request Section
     'request_kicker' => 'ابدأ مشروعك',
     'request_title' => 'اطلب تصميم ثلاثي الأبعاد',
@@ -103,7 +111,7 @@ return [
     'request_details' => 'التفاصيل',
     'request_details_placeholder' => 'المقاسات، الأحجار، الوزن التقريبي، ملاحظات خاصة...',
     'request_submit' => 'إرسال طلب التصميم ثلاثي الأبعاد',
-    
+
     // Process Visual Section
     'process_list_item_1' => 'عرض واقعي عالي الدقة للاستخدام التسويقي.',
     'process_list_item_2' => 'فحص سلامة الملف الفني لعدم وجود عيوب في الإنتاج.',
@@ -112,5 +120,3 @@ return [
     'process_alt_detail' => 'تفاصيل مقربة لهندسة النموذج ثلاثي الأبعاد',
     'process_alt_production' => 'معاينة نموذج الشمع / المطبوع',
 ];
-
-

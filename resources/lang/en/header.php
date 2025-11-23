@@ -5,67 +5,75 @@ return [
     'phone' => '+967 777 000 000',
     'design_production_delivery' => 'Design • Production • Delivery inside Yemen',
     'regions' => 'Yemen – Sana\'a • Aden • Taiz • Ibb',
-    
+
     // Logo
     'logo_main' => 'Auvea',
     'logo_sub' => '3D Gold & Jewelry Studio – Yemen',
-    
+
     // Navigation
     'nav_collections' => '3D Collections',
     'nav_process' => 'Process',
     'nav_request' => 'Request',
-    
+
     // Icons tooltips
     'theme_toggle' => 'Toggle dark and light theme',
     'wishlist' => 'Wishlist',
     'account' => 'Account',
     'cart' => 'Cart',
-    
+    'cart_item_added' => 'Item added to cart successfully',
+    'cart_updated' => 'Cart updated successfully',
+    'cart_item_removed' => 'Item removed from cart',
+    'cart_cleared' => 'Cart cleared successfully',
+    'cart_item_already_added' => 'This item is already in your cart',
+    'add_to_cart' => 'Add to Cart',
+    'already_added' => 'Already Added',
+    'view_cart' => 'View Cart',
+
     // Metal labels
     'gold' => 'GOLD',
     'silver' => 'SILVER',
     'platinum' => 'PLATINUM',
-    
+
     // Language switcher
     'language' => 'Language',
-    
+
     // Footer
     'footer_intro' => 'Auvea 3D Studio specializes in high-quality jewelry CAD designs for gold, silver and gemstones. We support Yemen-based jewelers and workshops with realistic previews, accurate weights, and production-ready files – from idea to casting.',
-    
+
     // Newsletter
     'newsletter_heading' => 'Stay Connected',
     'newsletter_text' => 'Get updates about new 3D collections, offers for Yemeni workshops and tips for presenting designs to your clients.',
     'newsletter_placeholder' => 'Enter your email address',
     'newsletter_button' => 'Join',
-    
+
     // 3D Services
     'services_heading' => '3D Services',
     'service_custom_ring' => 'Custom Ring Design',
     'service_bridal' => 'Bridal & Sets',
     'service_silver_mens' => 'Silver & Men\'s Designs',
     'service_name_jewelry' => 'Name Jewelry',
-    
+
     // For Yemen
     'yemen_heading' => 'For Yemen',
     'yemen_workshops' => 'Workshops & Factories',
     'yemen_retail' => 'Retail Jewelry Stores',
     'yemen_delivery' => 'Remote Delivery',
     'yemen_payment' => 'Payment Options',
-    
+
     // Support
     'support_heading' => 'Support',
     'support_how_works' => 'How 3D Design Works',
     'support_formats' => 'File Formats',
     'support_contact' => 'Contact & WhatsApp',
     'support_faq' => 'FAQ',
-    
+
     // Footer bottom
     'copyright' => '© 2025 Auvea 3D Studio • All Rights Reserved',
     'sitemap' => 'Site Map',
     'privacy' => 'Privacy Policy',
     'terms' => 'Terms & Conditions',
     'designer' => 'Design by Eng. Uday',
-    
+
     // Collections Section
     'collections_kicker' => 'Custom CAD Modeling & Manufacturing Files',
     'collections_title' => 'Exclusive 3D Jewelry Collections for Yemen',
@@ -74,7 +82,7 @@ return [
     'collections_no_designs' => 'No designs found in the database.',
     'collections_weight' => 'Weight',
     'collections_karat' => 'Karat',
-    
+
     // Design Request Section
     'request_kicker' => 'Start Your Project',
     'request_title' => 'Request a 3D Design',
@@ -103,7 +111,7 @@ return [
     'request_details' => 'Details',
     'request_details_placeholder' => 'Sizes, stones, approximate weight, special notes…',
     'request_submit' => 'Send 3D Design Request',
-    
+
     // Process Visual Section
     'process_list_item_1' => 'High-definition realistic render for marketing use.',
     'process_list_item_2' => 'Technical file integrity check for zero production flaws.',
@@ -112,5 +120,3 @@ return [
     'process_alt_detail' => 'Close-up detail of the 3D model geometry',
     'process_alt_production' => 'Preview of the wax / printed model',
 ];
-
-
