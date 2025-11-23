@@ -14,6 +14,7 @@ return [
     'nav_collections' => '3D Collections',
     'nav_process' => 'Process',
     'nav_request' => 'Request',
+    'nav_steps' => 'Steps Workflow',
 
     // Icons tooltips
     'theme_toggle' => 'Toggle dark and light theme',

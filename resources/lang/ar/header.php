@@ -11,9 +11,10 @@ return [
     'logo_sub' => 'استوديو الذهب والمجوهرات ثلاثي الأبعاد – اليمن',
 
     // Navigation
-    'nav_collections' => 'المجموعات ثلاثية الأبعاد',
+    'nav_collections' => 'معرض التصاميم',
     'nav_process' => 'العملية',
     'nav_request' => 'طلب',
+    'nav_steps' => 'خطوات سير العمل',
 
     // Icons tooltips
     'theme_toggle' => 'تبديل الوضع الليلي والنهاري',

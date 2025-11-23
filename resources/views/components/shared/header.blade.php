@@ -38,6 +38,7 @@
                 <a href="#collections" class="nav-link">{{ __('header.nav_collections') }}</a>
                 <a href="#process" class="nav-link">{{ __('header.nav_process') }}</a>
                 <a href="#request" class="nav-link">{{ __('header.nav_request') }}</a>
+                <a href="#steps" class="nav-link">{{ __('header.nav_steps') }}</a>
             </nav>
             <div class="header-icons">
                 <button class="theme-toggle" id="themeToggle" aria-label="{{ __('header.theme_toggle') }}">☀️</button>
