@@ -13,9 +13,15 @@ class DesignsTable
     {
         return $table
             ->columns([
-                \Filament\Tables\Columns\ImageColumn::make('preview_image'),
+                \Filament\Tables\Columns\ImageColumn::make('preview_image')
+                    ->label('')
+                    ->alignCenter()
+                    ->circular()->imageSize(50),
                 \Filament\Tables\Columns\TextColumn::make('name_ar')
                     ->label('Name (Arabic)')
+                    ->searchable(),
+                \Filament\Tables\Columns\TextColumn::make('name_en')
+                    ->label('Name (English)')
                     ->searchable(),
                 \Filament\Tables\Columns\TextColumn::make('category.name_ar')
                     ->label('Category')

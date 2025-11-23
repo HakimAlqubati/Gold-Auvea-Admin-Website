@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Resources\AgtaAwards\AgtaAwardResource;
+use App\Filament\Resources\Carts\CartResource;
 use App\Filament\Resources\Categories\CategoryResource;
 use App\Filament\Resources\Designs\DesignResource;
 use App\Filament\Resources\DigitalPrototypingFeatures\DigitalPrototypingFeatureResource;
@@ -74,6 +75,10 @@ class AdminPanelProvider extends PanelProvider
                 $group[] =  NavigationGroup::make(__('lang.user_management'))
                     ->items(array_merge(
                         UserResource::getNavigationItems(),
+                     ));
+                $group[] =  NavigationGroup::make(__('lang.cart'))
+                    ->items(array_merge(
+                        CartResource::getNavigationItems(),
                      ));
 
                 $menu =  $builder->items([

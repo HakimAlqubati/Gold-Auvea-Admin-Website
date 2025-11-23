@@ -5,4 +5,6 @@ return [
     'slider_images' => 'Slider Images',
     'categories_and_designs' => 'Categories & Designs',
     'user_management' => 'User Management',
+    'cart' => 'Cart',
+    'agta_awards' => 'Agta Awards',
 ];

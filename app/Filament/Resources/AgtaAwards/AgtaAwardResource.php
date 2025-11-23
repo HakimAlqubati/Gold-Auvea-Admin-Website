@@ -13,12 +13,13 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
 
 class AgtaAwardResource extends Resource
 {
     protected static ?string $model = AgtaAward::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Trophy;
 
     protected static ?string $recordTitleAttribute = 'title';
 
@@ -46,5 +47,14 @@ class AgtaAwardResource extends Resource
             'create' => CreateAgtaAward::route('/create'),
             'edit' => EditAgtaAward::route('/{record}/edit'),
         ];
+    }
+    public static function getNavigationBadge(): ?string
+    {
+        return  static::getModel()::count();
+    }
+
+    public static function getNavigationBadgeTooltip(): string | Htmlable | null
+    {
+        return __('lang.agta_awards');
     }
 }
