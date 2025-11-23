@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Resources\AgtaAwards\AgtaAwardResource;
 use App\Filament\Resources\Categories\CategoryResource;
 use App\Filament\Resources\Designs\DesignResource;
 use App\Filament\Resources\DigitalPrototypingFeatures\DigitalPrototypingFeatureResource;
@@ -63,6 +64,7 @@ class AdminPanelProvider extends PanelProvider
                         SliderImageResource::getNavigationItems(),
                         WorkflowResource::getNavigationItems(),
                         DigitalPrototypingFeatureResource::getNavigationItems(),
+                        AgtaAwardResource::getNavigationItems(),
                     ));
                 $group[] =  NavigationGroup::make(__('lang.categories_and_designs'))
                     ->items(array_merge(

@@ -103,6 +103,14 @@ return [
     'request_details' => 'Details',
     'request_details_placeholder' => 'Sizes, stones, approximate weight, special notes…',
     'request_submit' => 'Send 3D Design Request',
+    
+    // Process Visual Section
+    'process_list_item_1' => 'High-definition realistic render for marketing use.',
+    'process_list_item_2' => 'Technical file integrity check for zero production flaws.',
+    'process_list_item_3' => 'Accurate metal weight and stone count estimation.',
+    'process_alt_hero' => 'Final polished 3D render of the jewelry piece',
+    'process_alt_detail' => 'Close-up detail of the 3D model geometry',
+    'process_alt_production' => 'Preview of the wax / printed model',
 ];
 
 

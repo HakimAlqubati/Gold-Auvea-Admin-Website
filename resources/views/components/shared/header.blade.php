@@ -47,7 +47,7 @@
                     <a href="{{ route('locale.switch', ['locale' => app()->getLocale() === 'ar' ? 'en' : 'ar']) }}" 
                        class="header-icon-btn" 
                        title="{{ __('header.language') }}">
-                        🌐 <span class="lang-code">{{ strtoupper(app()->getLocale()) }}</span>
+                         <span class="lang-code">{{ strtoupper(app()->getLocale()) }}</span>
                     </a>
                 </div>
                 

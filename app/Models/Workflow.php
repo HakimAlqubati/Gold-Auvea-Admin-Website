@@ -14,8 +14,11 @@ class Workflow extends Model
     // تحديد الأعمدة القابلة للتعبئة مباشرة (Fillable)
     protected $fillable = [
         'kicker',
+        'kicker_ar',
         'title',
+        'title_ar',
         'description',
+        'description_ar',
     ];
     // تحديد العلاقة: سير العمل الواحد يحتوي على عدة مراحل (WorkflowPhase)
     public function phases(): HasMany

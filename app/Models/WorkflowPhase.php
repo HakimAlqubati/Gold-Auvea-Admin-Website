@@ -16,8 +16,11 @@ class WorkflowPhase extends Model
         'workflow_id',
         'index',
         'title',
+        'title_ar',
         'tags',
+        'tags_ar',
         'description',
+        'description_ar',
     ];
     // تحديد العلاقة: المرحلة الواحدة تنتمي إلى سير عمل واحد (Workflow)
     public function workflow(): BelongsTo

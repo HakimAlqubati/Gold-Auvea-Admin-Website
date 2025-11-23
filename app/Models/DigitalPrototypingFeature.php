@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class DigitalPrototypingFeature extends Model
 {
     use HasFactory;
-    
+
     // اسم الجدول في قاعدة البيانات
     protected $table = 'digital_prototyping_features';
 
@@ -25,6 +25,7 @@ class DigitalPrototypingFeature extends Model
         // الحقول العربية
         'kicker_text_ar',
         'main_title_ar',
+        'section_heading_ar',
         'paragraph_1_ar',
         'paragraph_2_ar',
     ];

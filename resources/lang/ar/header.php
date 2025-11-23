@@ -103,6 +103,14 @@ return [
     'request_details' => 'التفاصيل',
     'request_details_placeholder' => 'المقاسات، الأحجار، الوزن التقريبي، ملاحظات خاصة...',
     'request_submit' => 'إرسال طلب التصميم ثلاثي الأبعاد',
+    
+    // Process Visual Section
+    'process_list_item_1' => 'عرض واقعي عالي الدقة للاستخدام التسويقي.',
+    'process_list_item_2' => 'فحص سلامة الملف الفني لعدم وجود عيوب في الإنتاج.',
+    'process_list_item_3' => 'تقدير دقيق لوزن المعدن وعدد الأحجار.',
+    'process_alt_hero' => 'عرض ثلاثي الأبعاد نهائي مصقول لقطعة المجوهرات',
+    'process_alt_detail' => 'تفاصيل مقربة لهندسة النموذج ثلاثي الأبعاد',
+    'process_alt_production' => 'معاينة نموذج الشمع / المطبوع',
 ];
 
 
