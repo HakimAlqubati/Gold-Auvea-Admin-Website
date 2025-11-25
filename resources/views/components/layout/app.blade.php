@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/auvea/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/auvea/cart.css') }}">
+    <link rel="icon" href="{{ asset('assets/auvea/logo.png') }}" type="image/png">
 
     {{-- Apply dark mode immediately before page renders to prevent flash --}}
     <script>
@@ -29,7 +30,7 @@
     {{-- يتم هنا تضمين محتوى الصفحة (home.blade.php) --}}
     {{ $slot }}
 
-    <button class="to-top-btn" id="toTopBtn" aria-label="Back to top">↑</button>
+    <button class=" to-top-btn" id="toTopBtn" aria-label="Back to top">↑</button>
 
     <script src="{{ asset('assets/auvea/script.js') }}"></script>
     <script src="{{ asset('assets/auvea/responsive.js') }}"></script>

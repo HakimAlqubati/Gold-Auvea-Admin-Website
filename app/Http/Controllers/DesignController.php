@@ -16,7 +16,9 @@ class DesignController extends Controller
      */
     public function index($category = null)
     {
-        $categories = Category::where('is_active', true)->get();
+        $categories = Category::where('is_active', true)
+            ->withCount('designs')
+            ->get();
 
         $query = Design::with('category');
 

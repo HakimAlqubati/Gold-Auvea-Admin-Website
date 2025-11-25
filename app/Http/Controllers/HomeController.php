@@ -19,7 +19,10 @@ class HomeController extends Controller
             ->get();
 
         // 2. جلب الفئات (Categories)
-        $categories = Category::select('name_en', 'name_ar', 'data_filter')->where('is_active', true)->get();
+        $categories = Category::select('id', 'name_en', 'name_ar', 'data_filter')
+            ->where('is_active', true)
+            ->withCount('designs')
+            ->get();
 
         // 3. جلب التصاميم (Designs)
         $designs = Design::with('category')->limit(8)->get();

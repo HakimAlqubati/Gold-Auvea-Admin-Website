@@ -24,7 +24,7 @@ $designs = $designs ?? [];
 
             @foreach($categories as $category)
             <div class="filter-card" data-filter="{{ $category->data_filter }}">
-                {{ app()->getLocale() == 'ar' ? $category->name_ar : $category->name_en }}
+                {{ app()->getLocale() == 'ar' ? $category->name_ar : $category->name_en }} ({{ $category->designs_count }})
             </div>
             @endforeach
 
