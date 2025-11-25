@@ -102,6 +102,13 @@ setInterval(() => plusSlides(1), 5000);
 const filterCards = document.querySelectorAll('.filter-card');
 const collectionCards = document.querySelectorAll('.collection-card');
 
+// Reset all collection cards to visible state on page load
+collectionCards.forEach(item => {
+    item.style.display = 'block';
+    item.style.opacity = '1';
+    item.classList.remove('hidden');
+});
+
 filterCards.forEach(card => {
     card.addEventListener('click', function () {
         const filter = this.getAttribute('data-filter');
@@ -125,7 +132,7 @@ filterCards.forEach(card => {
                         item.classList.add('visible');
                     }
                 }, 10);
-                item.opacity = '1';
+                item.style.opacity = '1'; // Fixed: was item.opacity
             } else {
                 item.style.opacity = '0';
                 // Hide after transition
