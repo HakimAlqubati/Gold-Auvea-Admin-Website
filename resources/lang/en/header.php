@@ -11,6 +11,7 @@ return [
     'logo_sub' => '3D Gold & Jewelry Studio – Yemen',
 
     // Navigation
+    'nav_start_shopping' => 'Start Shopping',
     'nav_collections' => '3D Collections',
     'nav_process' => 'Process',
     'nav_request' => 'Request',

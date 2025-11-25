@@ -70,7 +70,7 @@ function showSlides(n) {
     const dotsWrap = document.getElementById("sliderDots");
 
     // Create dots only once
-    if (dotsWrap.children.length === 0) {
+    if (dotsWrap && dotsWrap.children.length === 0) {
         for (let a = 0; a < slides.length; a++) {
             const dot = document.createElement("span");
             dot.classList.add("dot");
@@ -79,7 +79,7 @@ function showSlides(n) {
         }
     }
 
-    const dots = dotsWrap.children;
+    const dots = dotsWrap ? dotsWrap.children : [];
 
     if (n > slides.length) slideIndex = 1;
     if (n < 1) slideIndex = slides.length;
@@ -87,8 +87,12 @@ function showSlides(n) {
     for (i = 0; i < slides.length; i++) slides[i].style.display = "none";
     for (i = 0; i < dots.length; i++) dots[i].classList.remove("active-dot");
 
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].classList.add("active-dot");
+    if (slides[slideIndex - 1]) {
+        slides[slideIndex - 1].style.display = "block";
+    }
+    if (dots[slideIndex - 1]) {
+        dots[slideIndex - 1].classList.add("active-dot");
+    }
 }
 
 // Auto change slides
@@ -121,7 +125,7 @@ filterCards.forEach(card => {
                         item.classList.add('visible');
                     }
                 }, 10);
-                item.style.opacity = '1';
+                item.opacity = '1';
             } else {
                 item.style.opacity = '0';
                 // Hide after transition
@@ -168,36 +172,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // DARK MODE LOGIC
     const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
 
-    // 1. Function to apply the saved or initial theme
-    function applyTheme(theme) {
-        if (theme === 'dark') {
-            document.documentElement.classList.add('dark-mode');
-            themeToggle.textContent = '🌙';
-        } else {
-            document.documentElement.classList.remove('dark-mode');
-            themeToggle.textContent = '☀️';
-        }
+    if (themeToggle) {
+        // Set initial button icon based on current theme
+        const isDarkMode = document.documentElement.classList.contains('dark-mode');
+        themeToggle.textContent = isDarkMode ? '🌙' : '☀️';
+
+        // Event listener for the toggle button
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark-mode');
+            const newTheme = isDark ? 'dark' : 'light';
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = isDark ? '🌙' : '☀️';
+        });
     }
-
-    // 2. Check saved preference or system preference on load
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme) {
-        applyTheme(savedTheme);
-    } else if (prefersDark) {
-        applyTheme('dark');
-    } else {
-        applyTheme('light'); // Default to light
-    }
-
-    // 3. Event listener for the toggle button
-    themeToggle.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.toggle('dark-mode');
-        const newTheme = isDark ? 'dark' : 'light';
-        localStorage.setItem('theme', newTheme);
-        themeToggle.textContent = isDark ? '🌙' : '☀️';
-    });
 });

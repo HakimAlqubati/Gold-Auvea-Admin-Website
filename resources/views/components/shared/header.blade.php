@@ -28,20 +28,21 @@
         <div class="logo">
             <!-- <a href="/"> -->
 
-                {{-- التعديل هنا: استخدام دالة asset() --}}
-               <a href="/">
-                   <img src="{{ asset('assets/auvea/logo.png') }}" width="60" alt="Auvea Logo">
-               </a>
-                <div>
+            {{-- التعديل هنا: استخدام دالة asset() --}}
+            <a href="/">
+                <img src="{{ asset('assets/auvea/logo.png') }}" width="60" alt="Auvea Logo">
+            </a>
+            <div>
                 <a href="/">
                     <span class="text-main">{{ __('header.logo_main') }}</span>
-                </a>   
-                    <span class="logo-sub">{{ __('header.logo_sub') }}</span>
-                </div>
+                </a>
+                <span class="logo-sub">{{ __('header.logo_sub') }}</span>
+            </div>
             <!-- </a> -->
         </div>
 
         <nav class="header-nav">
+            <a href="{{ route('designs.index') }}" class="nav-link">{{ __('header.nav_start_shopping') }}</a>
             <a href="#collections" class="nav-link">{{ __('header.nav_collections') }}</a>
             <a href="#process" class="nav-link">{{ __('header.nav_process') }}</a>
             <a href="#request" class="nav-link">{{ __('header.nav_request') }}</a>

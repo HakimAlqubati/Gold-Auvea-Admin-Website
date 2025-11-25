@@ -11,6 +11,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/auvea/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/auvea/cart.css') }}">
+
+    {{-- Apply dark mode immediately before page renders to prevent flash --}}
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
 </head>
 
 <body>
