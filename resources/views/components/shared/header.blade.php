@@ -49,6 +49,13 @@
             <a href="#steps" class="nav-link">{{ __('header.nav_steps') }}</a>
         </nav>
         <div class="header-icons">
+            {{-- Mobile Menu Toggle Button (Hidden on desktop) --}}
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="{{ __('header.menu') }}">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <button class="theme-toggle" id="themeToggle" aria-label="{{ __('header.theme_toggle') }}">☀️</button>
 
             {{-- Language Switcher --}}
@@ -66,3 +73,21 @@
         </div>
     </div>
 </header>
+
+{{-- Mobile Menu Overlay --}}
+<div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="{{ __('header.close_menu') }}">
+        ✕
+    </button>
+
+    <nav class="mobile-nav">
+        <a href="{{ route('designs.index') }}" class="mobile-nav-link">{{ __('header.nav_start_shopping') }}</a>
+        <a href="#collections" class="mobile-nav-link">{{ __('header.nav_collections') }}</a>
+        <a href="#process" class="mobile-nav-link">{{ __('header.nav_process') }}</a>
+        <a href="#request" class="mobile-nav-link">{{ __('header.nav_request') }}</a>
+        <a href="#steps" class="mobile-nav-link">{{ __('header.nav_steps') }}</a>
+    </nav>
+</div>
+
+{{-- Mobile Menu Backdrop --}}
+<div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>

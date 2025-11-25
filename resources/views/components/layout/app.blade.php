@@ -32,6 +32,7 @@
     <button class="to-top-btn" id="toTopBtn" aria-label="Back to top">↑</button>
 
     <script src="{{ asset('assets/auvea/script.js') }}"></script>
+    <script src="{{ asset('assets/auvea/responsive.js') }}"></script>
     <script src="{{ asset('assets/auvea/cart.js') }}"></script>
     @stack('scripts')
 </body>

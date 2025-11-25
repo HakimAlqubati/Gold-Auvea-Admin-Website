@@ -38,6 +38,28 @@
 
     --page-max-width: 1450px;
     --page-x-padding: 16px;
+
+    /* 📱 RESPONSIVE VARIABLES */
+    /* Fluid Typography - scales smoothly between screen sizes */
+    --font-size-base: clamp(0.875rem, 0.8rem + 0.4vw, 1rem);
+    --font-size-small: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+    --font-size-large: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+    --font-size-xlarge: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+    --font-size-heading: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+
+    /* Responsive Spacing */
+    --spacing-xs: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);
+    --spacing-sm: clamp(0.5rem, 0.4rem + 0.5vw, 1rem);
+    --spacing-md: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+    --spacing-lg: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+    --spacing-xl: clamp(2rem, 1.5rem + 2.5vw, 4rem);
+
+    /* Touch Targets - minimum 44x44px for accessibility */
+    --touch-target-min: 44px;
+
+    /* Responsive Padding */
+    --section-padding-y: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+    --section-padding-x: clamp(1rem, 0.8rem + 1vw, 2rem);
 }
 
 /* Dark Mode Overrides */
@@ -402,6 +424,198 @@ img {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-color: var(--gold);
 }
+
+/* 📱 MOBILE NAVIGATION SYSTEM */
+/* Hamburger Menu Button - Hidden on desktop, visible on mobile/tablet */
+.mobile-menu-toggle {
+    display: none;
+    /* Hidden by default, shown in media queries */
+    width: var(--touch-target-min);
+    height: var(--touch-target-min);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 1001;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text-dark);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+:root.dark-mode .mobile-menu-toggle span {
+    background: var(--text-light);
+}
+
+/* Hamburger Animation - Transform to X when active */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    /* Start off-screen */
+    width: 100%;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--bg-light-soft);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    padding: 80px 20px 20px;
+}
+
+:root.dark-mode .mobile-menu-overlay {
+    background: var(--bg-dark-soft);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* RTL Support - Slide from left in Arabic */
+html[lang="ar"] .mobile-menu-overlay {
+    right: auto;
+    left: -100%;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+}
+
+html[lang="ar"]:root.dark-mode .mobile-menu-overlay {
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Active state - slide in */
+.mobile-menu-overlay.active {
+    right: 0;
+}
+
+html[lang="ar"] .mobile-menu-overlay.active {
+    right: auto;
+    left: 0;
+}
+
+/* Mobile Menu Backdrop */
+.mobile-menu-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-menu-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Mobile Navigation Links */
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mobile-nav-link {
+    display: block;
+    padding: 14px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:focus {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold-deep);
+    transform: translateX(5px);
+}
+
+html[lang="ar"] .mobile-nav-link:hover,
+html[lang="ar"] .mobile-nav-link:focus {
+    transform: translateX(-5px);
+}
+
+:root.dark-mode .mobile-nav-link {
+    color: var(--text-light);
+}
+
+:root.dark-mode .mobile-nav-link:hover,
+:root.dark-mode .mobile-nav-link:focus {
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--gold-dark);
+}
+
+/* Mobile Menu Close Button */
+.mobile-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: var(--touch-target-min);
+    height: var(--touch-target-min);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+html[lang="ar"] .mobile-menu-close {
+    right: auto;
+    left: 20px;
+}
+
+.mobile-menu-close:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold-deep);
+}
+
+:root.dark-mode .mobile-menu-close {
+    color: var(--text-light);
+}
+
+:root.dark-mode .mobile-menu-close:hover {
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--gold-dark);
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.mobile-menu-open {
+    overflow: hidden;
+}
+
 
 /* HERO SLIDER */
 .hero-slider {
@@ -1783,58 +1997,68 @@ html[lang="ar"] .collections-main {
     transform: translateY(0);
 }
 
-/* RESPONSIVE */
+/* ========================================
+   📱 RESPONSIVE BREAKPOINTS
+   Mobile-First Approach with 5 Breakpoints
+   ======================================== */
+
+/* ============================================
+   TABLET & BELOW (max-width: 992px)
+   ============================================ */
 @media (max-width: 992px) {
-    .main-header-inner {
-        /* Changed for smaller screens: logo/nav on top, search/icons below */
-        grid-template-columns: 1fr;
-        padding: 10px 16px;
+
+    /* Show Mobile Menu Toggle, Hide Desktop Nav */
+    .mobile-menu-toggle {
+        display: flex;
     }
 
     .header-nav {
-        order: 1;
-        /* Place nav below logo/icons on small screens */
-        justify-content: flex-start;
-        overflow-x: auto;
-        margin: 8px 0 0 0;
-        /* Adjust margin for new block layout */
-        padding-bottom: 5px;
-        border-top: 1px solid rgba(212, 175, 55, 0.2);
-        padding-top: 8px;
+        display: none;
+        /* Hide desktop nav, use mobile menu instead */
     }
 
-    :root.dark-mode .header-nav {
-        border-top: 1px solid rgba(212, 175, 55, 0.5);
-    }
-
-    .header-icons {
-        order: 2;
-        /* Place icons below nav/logo */
-        justify-content: flex-end;
-        /* Align icons to the right */
+    /* Header Adjustments */
+    .main-header-inner {
+        grid-template-columns: 1fr auto;
+        padding: 10px 16px;
+        gap: 12px;
     }
 
     .logo {
-        order: 0;
-        /* Logo remains on top */
+        font-size: 1.4rem;
     }
 
-    .nav-link::after {
-        bottom: -8px;
-        /* Adjust link underline position */
+    .logo-mark {
+        width: 32px;
+        height: 32px;
     }
 
-    .hero-inner {
-        grid-template-columns: 1fr;
+    /* Top Ticker Improvements */
+    .top-ticker {
+        flex-wrap: wrap;
+        padding: 8px 12px;
+        gap: 8px;
     }
 
-    .hero-map-wrap {
-        order: -1;
+    .top-ticker-right {
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
+    .metal-price {
+        font-size: 0.75rem;
+    }
+
+    /* Hero Slider */
+    .slide img {
+        height: 350px;
+    }
+
+    /* AGTA Award Section */
     .agta-inner {
         grid-template-columns: 1fr;
         padding: 20px;
+        gap: 30px;
     }
 
     .agta-images {
@@ -1842,88 +2066,520 @@ html[lang="ar"] .collections-main {
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 20px;
     }
 
     .agta-drawing-card {
         width: 100%;
-        max-width: 300px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 320px;
         position: static;
-        margin-bottom: 20px;
-    }
-
-    :root.dark-mode .agta-drawing-card {
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        margin-bottom: 0;
     }
 
     .agta-final-piece {
         position: static;
         width: 100%;
-        max-width: 300px;
+        max-width: 320px;
     }
 
     .agta-heading {
         font-size: 2rem;
+        text-align: center;
     }
 
+    .agta-content {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    /* Steps Process - 2 Columns */
     .steps-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
     }
 
+    /* Collections - 2 Columns */
     .collections-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
     }
 
-    .process-grid,
+    .collection-card {
+        min-height: 350px;
+    }
+
+    .collection-img-wrap {
+        height: 220px;
+    }
+
+    /* Process Visual Section */
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .process-text {
+        order: 1;
+    }
+
+    .agta-images {
+        order: 2;
+    }
+
+    /* Design Request Form */
     .request-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
+    .request-info {
+        order: 1;
+    }
+
+    .request-form {
+        order: 2;
+    }
+
+    /* Footer - 2 Columns */
     .footer-columns {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
     }
 }
 
-@media (max-width: 640px) {
-    .top-ticker {
-        flex-direction: column;
-        align-items: flex-start;
+/* ============================================
+   TABLET PORTRAIT (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+
+    /* Increase touch targets */
+    .header-icon-btn,
+    .theme-toggle {
+        width: var(--touch-target-min);
+        height: var(--touch-target-min);
     }
 
-    .main-header-inner {
-        gap: 10px;
-    }
-
-    .header-nav {
-        justify-content: flex-start;
-        overflow-x: auto;
-    }
-
-    .steps-grid,
-    .collections-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-columns {
-        grid-template-columns: 1fr;
-    }
-
+    /* Hero Slider */
     .slide img {
-        height: 300px;
-        /* Adjust for smaller screens */
+        height: 320px;
     }
 
+    .slide-caption h2 {
+        font-size: 1.5rem;
+    }
+
+    .slide-caption p {
+        font-size: 0.9rem;
+    }
+
+    /* Slider Controls */
+    .prev,
+    .next {
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-kicker {
+        font-size: 0.7rem;
+    }
+
+    /* AGTA Award */
+    .agta-heading {
+        font-size: 1.75rem;
+    }
+
+    .agta-subheading {
+        font-size: 1rem;
+    }
+
+    /* Steps - Still 2 columns but smaller cards */
+    .step-card {
+        padding: 14px;
+    }
+
+    .step-title {
+        font-size: 0.95rem;
+    }
+
+    /* Collections */
     .filter-cards {
-        justify-content: center;
-        gap: 8px;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
     }
 
     .filter-card {
-        font-size: 0.75rem;
-        padding: 6px 12px;
+        white-space: nowrap;
+        flex-shrink: 0;
     }
 
+    /* Form Improvements */
+    .form-input,
+    .form-textarea,
+    .form-select {
+        padding: 12px 14px;
+        font-size: 1rem;
+        min-height: var(--touch-target-min);
+    }
+
+    .form-label {
+        font-size: 0.85rem;
+    }
+
+    .btn-primary {
+        padding: 14px 24px;
+        font-size: 0.9rem;
+        min-height: var(--touch-target-min);
+    }
+
+    /* Footer */
+    .footer-columns {
+        gap: 24px;
+    }
+}
+
+/* ============================================
+   MOBILE LARGE (max-width: 640px)
+   ============================================ */
+@media (max-width: 640px) {
+
+    /* Top Ticker - Stack Vertically */
+    .top-ticker {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 12px;
+    }
+
+    .top-ticker-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .top-ticker-right {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    /* Header */
+    .main-header-inner {
+        padding: 8px 12px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .logo-mark {
+        width: 28px;
+        height: 28px;
+    }
+
+    .logo-sub {
+        font-size: 0.6rem;
+    }
+
+    /* Header Icons - Reduce gap */
+    .header-icons {
+        gap: 6px;
+    }
+
+    /* Hero Slider */
+    .slide img {
+        height: 280px;
+    }
+
+    .slider-container {
+        border-radius: 12px;
+    }
+
+    .slide-caption {
+        bottom: 12px;
+        left: 12px;
+    }
+
+    .slide-caption h2 {
+        font-size: 1.25rem;
+    }
+
+    .slide-caption p {
+        font-size: 0.8rem;
+    }
+
+    /* Section Padding */
+    .section {
+        padding: 30px 12px;
+    }
+
+    .section-title {
+        font-size: 1.35rem;
+    }
+
+    /* AGTA Award */
+    .agta-inner {
+        padding: 16px;
+    }
+
+    .agta-heading {
+        font-size: 1.5rem;
+    }
+
+    .agta-drawing-card,
+    .agta-final-piece {
+        max-width: 280px;
+    }
+
+    /* Steps Process - 1 Column */
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .step-card {
+        min-height: auto;
+    }
+
+    /* Collections - 1 Column */
+    .collections-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .collection-card {
+        min-height: auto;
+    }
+
+    .collection-img-wrap {
+        height: 240px;
+    }
+
+    /* Filter Cards */
+    .filter-card {
+        font-size: 0.75rem;
+        padding: 8px 14px;
+    }
+
+    /* Process Visual */
     .layered-images {
         height: 250px;
+    }
+
+    /* Design Request Form */
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .request-form {
+        padding: 16px 14px;
+    }
+
+    .request-form-title {
+        font-size: 0.85rem;
+    }
+
+    /* Footer - 1 Column */
+    .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-bottom-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+}
+
+/* ============================================
+   MOBILE SMALL (max-width: 480px)
+   ============================================ */
+@media (max-width: 480px) {
+
+    /* Further optimize for very small screens */
+    .page-container {
+        padding-inline: 12px;
+    }
+
+    /* Hero Slider */
+    .slide img {
+        height: 250px;
+    }
+
+    .prev,
+    .next {
+        padding: 8px;
+        font-size: 18px;
+        margin-top: -18px;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    /* Dots */
+    .dot {
+        height: 10px;
+        width: 10px;
+        margin: 0 3px;
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: 1.2rem;
+    }
+
+    .section-kicker {
+        font-size: 0.65rem;
+    }
+
+    /* AGTA Award */
+    .agta-heading {
+        font-size: 1.35rem;
+    }
+
+    .agta-subheading {
+        font-size: 0.9rem;
+    }
+
+    .agta-drawing-card,
+    .agta-final-piece {
+        max-width: 240px;
+    }
+
+    /* Steps */
+    .step-card {
+        padding: 12px;
+    }
+
+    .step-index {
+        font-size: 0.65rem;
+    }
+
+    .step-title {
+        font-size: 0.9rem;
+    }
+
+    .step-text {
+        font-size: 0.8rem;
+    }
+
+    /* Collections */
+    .collection-img-wrap {
+        height: 200px;
+    }
+
+    .collection-title {
+        font-size: 1rem;
+    }
+
+    .collection-subtext {
+        font-size: 0.8rem;
+    }
+
+    /* Process Visual */
+    .process-text h3 {
+        font-size: 1.25rem;
+    }
+
+    .process-text p {
+        font-size: 0.85rem;
+    }
+
+    /* Form */
+    .form-input,
+    .form-textarea,
+    .form-select {
+        font-size: 0.95rem;
+    }
+
+    /* Footer */
+    .footer-heading {
+        font-size: 0.75rem;
+    }
+
+    .newsletter-form input,
+    .newsletter-form button {
+        font-size: 0.8rem;
+    }
+}
+
+/* ============================================
+   MOBILE EXTRA SMALL (max-width: 360px)
+   ============================================ */
+@media (max-width: 360px) {
+
+    /* Ultra-compact for smallest devices */
+    .logo {
+        font-size: 1rem;
+    }
+
+    .logo-mark {
+        width: 24px;
+        height: 24px;
+    }
+
+    .slide img {
+        height: 220px;
+    }
+
+    .section-title {
+        font-size: 1.1rem;
+    }
+
+    .agta-heading {
+        font-size: 1.2rem;
+    }
+
+    .collection-img-wrap {
+        height: 180px;
+    }
+}
+
+/* ============================================
+   DESKTOP LARGE (min-width: 1200px)
+   ============================================ */
+@media (min-width: 1200px) {
+
+    /* Optimize for large screens */
+    .page-container {
+        padding-inline: 24px;
+    }
+
+    .section {
+        padding: 50px 20px;
+    }
+
+    .slide img {
+        height: 500px;
+    }
+
+    .collections-grid {
+        gap: 26px;
+    }
+
+    .collection-card {
+        min-height: 420px;
+    }
+
+    .collection-img-wrap {
+        height: 280px;
     }
 }
