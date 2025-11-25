@@ -7,4 +7,6 @@ return [
     'user_management' => 'User Management',
     'cart' => 'Cart',
     'agta_awards' => 'Agta Awards',
+    'categories' => 'Categories',
+    'designs' => 'Designs',
 ];

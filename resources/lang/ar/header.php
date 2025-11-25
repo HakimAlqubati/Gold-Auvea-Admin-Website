@@ -30,6 +30,26 @@ return [
     'already_added' => 'مضاف بالفعل',
     'view_cart' => 'عرض السلة',
 
+    // Cart Page
+    'cart_page_title' => 'سلة المشتريات',
+    'empty_cart' => 'السلة فارغة',
+    'empty_cart_message' => 'لم تقم بإضافة أي تصاميم إلى السلة بعد',
+    'continue_shopping' => 'متابعة التسوق',
+    'cart_total' => 'الإجمالي',
+    'checkout' => 'إتمام الطلب',
+    'quantity' => 'الكمية',
+    'price' => 'السعر',
+    'subtotal' => 'المجموع الفرعي',
+    'remove' => 'حذف',
+    'clear_cart' => 'إفراغ السلة',
+    'update_cart' => 'تحديث السلة',
+    'quick_view' => 'عرض سريع',
+    'design_name' => 'اسم التصميم',
+    'category' => 'الفئة',
+    'close' => 'إغلاق',
+    'item' => 'عنصر',
+    'items' => 'عناصر',
+
     // Metal labels
     'gold' => 'الذهب',
     'silver' => 'الفضة',

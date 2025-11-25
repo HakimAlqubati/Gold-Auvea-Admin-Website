@@ -11,8 +11,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // المسار الخاص بصفحة المجموعات الكاملة (إذا كانت منفصلة)
 // المسار الخاص بصفحة المجموعات الكاملة
-Route::get('/collections', [DesignController::class, 'index'])->name('designs.index');
-Route::get('/collections/filter', [DesignController::class, 'filter'])->name('designs.filter');
+// المسار الخاص بصفحة المجموعات الكاملة
+Route::get('/collections/{category?}', [DesignController::class, 'index'])->name('designs.index');
 
 // Language switcher route
 Route::get('/locale/{locale}', function ($locale) {
@@ -35,11 +35,12 @@ Route::get('/locale/{locale}', function ($locale) {
 use App\Http\Controllers\CartController;
 
 Route::prefix('cart')->name('cart.')->group(function () {
+    Route::get('/', [CartController::class, 'index'])->name('index');
     Route::post('/add', [CartController::class, 'add'])->name('add');
     Route::put('/update/{itemId}', [CartController::class, 'update'])->name('update');
     Route::delete('/remove/{itemId}', [CartController::class, 'remove'])->name('remove');
     Route::delete('/clear', [CartController::class, 'clear'])->name('clear');
-    Route::get('/', [CartController::class, 'getCart'])->name('get');
+    Route::get('/data', [CartController::class, 'getCart'])->name('get');
     Route::get('/count', [CartController::class, 'getCount'])->name('count');
     Route::get('/items', [CartController::class, 'getCartItemIds'])->name('items');
 });

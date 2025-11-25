@@ -14,32 +14,29 @@ class DesignController extends Controller
     /**
      * عرض صفحة مجموعات التصاميم الكاملة.
      */
-    public function index()
+    public function index($category = null)
     {
         $categories = Category::where('is_active', true)->get();
-        // Default to showing all designs initially, or let the view handle the initial load via AJAX if preferred.
-        // For SEO and initial render, it's better to pass them.
-        $designs = Design::with('category')->get();
-
-        return view('pages.collections', compact('categories', 'designs'));
-    }
-
-    /**
-     * فلترة التصاميم عبر AJAX.
-     */
-    public function filter(Request $request)
-    {
-        $categoryId = $request->input('category_id');
 
         $query = Design::with('category');
 
-        if ($categoryId && $categoryId !== 'all') {
-            $query->where('category_id', $categoryId);
+        if ($category && $category !== 'all') {
+            $categoryModel = Category::where('slug', $category)->first();
+
+            if ($categoryModel) {
+                $query->where('category_id', $categoryModel->id);
+            } else {
+                // If category slug is invalid, you might want to show 404 or just show all.
+                // For now, let's return 404 to be correct.
+                abort(404);
+            }
         }
 
         $designs = $query->get();
 
-        // Return just the grid partial
-        return view('partials.designs-grid', compact('designs'))->render();
+        // Pass the current category slug to the view to highlight the active tab
+        $currentCategory = $category;
+
+        return view('pages.collections', compact('categories', 'designs', 'currentCategory'));
     }
 }

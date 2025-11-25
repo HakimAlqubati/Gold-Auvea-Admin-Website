@@ -30,6 +30,26 @@ return [
     'already_added' => 'Already Added',
     'view_cart' => 'View Cart',
 
+    // Cart Page
+    'cart_page_title' => 'Shopping Cart',
+    'empty_cart' => 'Empty Cart',
+    'empty_cart_message' => 'You haven\'t added any designs to your cart yet',
+    'continue_shopping' => 'Continue Shopping',
+    'cart_total' => 'Total',
+    'checkout' => 'Checkout',
+    'quantity' => 'Quantity',
+    'price' => 'Price',
+    'subtotal' => 'Subtotal',
+    'remove' => 'Remove',
+    'clear_cart' => 'Clear Cart',
+    'update_cart' => 'Update Cart',
+    'quick_view' => 'Quick View',
+    'design_name' => 'Design Name',
+    'category' => 'Category',
+    'close' => 'Close',
+    'item' => 'item',
+    'items' => 'items',
+
     // Metal labels
     'gold' => 'GOLD',
     'silver' => 'SILVER',

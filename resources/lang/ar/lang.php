@@ -7,4 +7,6 @@ return [
     'user_management' => 'ادارة المستخدمين',
     'cart' => 'سلة المشتريات',
     'agta_awards' => 'جوائز AGTA',
+    'categories' => 'المجموعات',
+    'designs' => 'التصاميم',
 ];

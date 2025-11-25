@@ -56,6 +56,6 @@ class CategoryResource extends Resource
 
     public static function getNavigationBadgeTooltip(): string|Htmlable|null
     {
-        return __('lang.resource');
+        return __('lang.categories');
     }
 }

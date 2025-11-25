@@ -11,6 +11,22 @@ use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
     /**
+     * عرض صفحة السلة
+     */
+    public function index()
+    {
+        $cart = $this->getOrCreateCart();
+        $cart->load('items.design.category');
+
+        return view('pages.cart', [
+            'cart' => $cart,
+            'items' => $cart->items,
+            'total' => $cart->total,
+            'itemsCount' => $cart->items_count,
+        ]);
+    }
+
+    /**
      * الحصول على السلة الحالية (للمستخدم أو الجلسة)
      */
     private function getOrCreateCart()

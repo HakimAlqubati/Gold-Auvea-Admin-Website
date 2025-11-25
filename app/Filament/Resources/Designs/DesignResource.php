@@ -9,7 +9,7 @@ use App\Filament\Resources\Designs\Schemas\DesignForm;
 use App\Filament\Resources\Designs\Tables\DesignsTable;
 use App\Models\Design;
 use BackedEnum;
- use Filament\Resources\Resource;
+use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
@@ -46,5 +46,10 @@ class DesignResource extends Resource
             'create' => CreateDesign::route('/create'),
             'edit' => EditDesign::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
     }
 }
